@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*采用的是相邻边框连接处的均分原理。*/
+        /*将元素的宽高设为 0，只设置*/
+        /*          border ，把任意三条边隐藏掉（颜色设为*/
+        /*          transparent），剩下的就是一个三角形。*/
+                  #demo0 {
+                      width: 0;
+                      height: 0;
+                      border-width: 20px;
+                      border-style: solid;
+                      border-color: transparent transparent transparent red;
+                  }#demo1 {
+                      width: 0;
+                      height: 0;
+                      border-width: 20px;
+                      border-style: solid;
+                      border-color: transparent transparent red transparent;
+                  }#demo2 {
+                      width: 0;
+                      height: 0;
+                      border-width: 20px;
+                      border-style: solid;
+                      border-color: transparent red transparent  transparent;
+                  }#demo3 {
+                      width: 0;
+                      height: 0;
+                      border-width: 20px;
+                      border-style: solid;
+                      border-color: red transparent transparent transparent;
+                  }#demo4 {
+                      width: 30px;
+                      height: 30px;
+                      border-width: 60px;
+                      border-style: solid;
+                      border-color: red pink yellow black;
+                  }#demo5 {
+                      width: 10px;
+                      height: 10px;
+                      border-width: 60px;
+                      border-style: solid;
+                      border-color: red pink yellow black;
+                  }#demo6 {
+                      width: 0;
+                      height: 0;
+                      border-width: 60px;
+                      border-style: solid;
+                      border-color: red pink yellow black;
+                  }
+
+    </style>
+</head>
+<body>
+<div id="demo0"></div>
+<div id="demo1"></div>
+<div id="demo2"></div>
+<div id="demo3"></div>
+<div id="demo4"></div>
+<div id="demo5"></div>
+<div id="demo6"></div>
+</body>
+</html>
