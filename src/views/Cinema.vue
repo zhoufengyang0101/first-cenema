@@ -26,6 +26,7 @@ export default {
     }
   },
   mounted () {
+    // 定义div盒子高度，确保ul高度大于父盒子高度
     this.mystyle.height = document.documentElement.clientHeight - 100 + 'px'
     axios({
       url: 'https://m.maizuo.com/gateway?cityId=110100&ticketFlag=1&k=745388',
@@ -80,6 +81,13 @@ export default {
       color: #797d82;
       font-size: 12px;
       margin-top: 5px;
+    }
+    .cinema-name, .cinema-address {
+      display: block;
+      max-width: 65%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 </style>

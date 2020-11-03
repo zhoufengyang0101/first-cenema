@@ -2,7 +2,9 @@
     <div class="swiper-container filmswiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="n in 6" :key="n">
-          <img src="https://pic.maizuo.com/usr/movie/0b4e01c33b555e533cf8aca71b67df1a.jpg?x-oss-process=image/quality,Q_70" alt="">
+<!--      <img src="https://static.maizuo.com/v5/upload/189bcf606b4bf49ad5de201a2ea5024d.jpg?x-oss-process=image/quality,Q_70" alt="">-->
+          <!--  未找到接口，直接写死       -->
+          <img src="../../../public/film-Swiper-1.jpg" alt="film_Swiper">
         </div>
       </div>
 <!--      如果需要分页器-->
