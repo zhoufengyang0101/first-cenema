@@ -6,7 +6,8 @@ export default createStore({
   state: {
     // 自定义的共享状态
     isTabbarShow: true,
-    comingList: []
+    comingList: [],
+    playingList: []
   },
   mutations: {
     // 唯一可以修改状态的位置
@@ -18,6 +19,9 @@ export default createStore({
     },
     comingListMutation (state, data) {
       state.comingList = data
+    },
+    playingListMutation (state, data) {
+      state.playingList = data
     }
   },
   actions: {
@@ -29,9 +33,22 @@ export default createStore({
           'X-Host': 'mall.film-ticket.film.list'
         }
       }).then(res => {
-        console.log(res.data)
+        console.log('res.data', res.data)
         // 数据传到mutation
         store.commit('comingListMutation', res.data.data.films)
+      })
+    },
+    getPlayingListAction (store) {
+      axios({
+        url: 'https://m.maizuo.com/gateway?cityId=110100&pageNum=1&pageSize=10&type=1&k=2573023',
+        headers: {
+          'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"1603086751434277028200449"}',
+          'X-Host': 'mall.film-ticket.film.list'
+        }
+      }).then(res => {
+        console.log('playingres.data', res.data)
+        // 数据传到mutation
+        store.commit('playingListMutation', res.data.data.films)
       })
     }
   },
