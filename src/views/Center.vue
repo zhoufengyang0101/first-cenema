@@ -1,12 +1,10 @@
 <template>
 <div class="center">
-  <h3>center</h3><br>
-  <div>
-    这里是一个页面<br>
-    这里是一个单文件组件<br>
-    这里是个人中心 <br>
-    啦啦啦啦啦啦啦啦！！！
-  </div>
+  <h3>个人中心</h3><br>
+  账号：<input type="text"><br>
+  密码：<input type="text"><br>
+  <button>登录</button>
+  <button>注册</button>
 </div>
 </template>
 
@@ -32,6 +30,6 @@ export default {
 .center {
   width: 100%;
   /*height: 600px;*/
-  background-color: antiquewhite;
+  background-color: #fafafa;
 }
 </style>

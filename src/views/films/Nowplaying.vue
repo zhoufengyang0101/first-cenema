@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="movie_body">
       <ul>
 <!--        //编程式导航-->
-        <li v-for="data in datalist" :key="data.filmId" @click="handleChangepage(data.filmId)">
+        <li v-for="data in this.$store.state.playingList" :key="data.filmId" @click="handleChangepage(data.filmId)">
           <img :src="data.poster" alt="">
           <span class="name">{{ data.name }}</span>
           <span class="item">{{ data.item.name }}</span>
@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'Nowplaying.vue',
   data () {
@@ -25,18 +24,12 @@ export default {
     }
   },
   mounted () {
-    // 请求字段：X-Client-Info: {"a":"3000","ch":"1002","v":"5.0.4","e":"1603086751434277028200449"}
-    // X-Host: mall.film-ticket.film.list
-    axios({
-      url: 'https://m.maizuo.com/gateway?cityId=110100&pageNum=1&pageSize=10&type=1&k=2573023',
-      headers: {
-        'X-Client-Info': '{"a":"3000","ch":"1002","v":"5.0.4","e":"1603086751434277028200449"}',
-        'X-Host': 'mall.film-ticket.film.list'
-      }
-    }).then(res => {
-      console.log(res.data)
-      this.datalist = res.data.data.films
-    })
+    if (this.$store.state.comingList.length === 0) {
+      // 使用Ajax请求,dispatch为分发请求方法
+      this.$store.dispatch('getPlayingListAction')
+    } else {
+      console.log('正在热映使用缓存数据')
+    }
   },
   methods: {
     handleChangepage (id) {

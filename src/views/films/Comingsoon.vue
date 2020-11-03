@@ -18,11 +18,12 @@
 export default {
   name: 'Comingsoon.vue',
   mounted () {
+    // 数据本来是直接通过Ajax请求直接放上的，通过vuex状态管理可以再第一次加载之后缓存起来
     if (this.$store.state.comingList.length === 0) {
       // 使用Ajax请求,dispatch为分发请求方法
       this.$store.dispatch('getComingListAction')
     } else {
-      console.log('使用缓存数据')
+      console.log('即将上映使用缓存数据')
     }
   },
   methods: {
